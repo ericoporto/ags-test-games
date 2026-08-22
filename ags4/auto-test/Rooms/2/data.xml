@@ -5,13 +5,13 @@
   <BackgroundCount>1</BackgroundCount>
   <BottomEdgeY>199</BottomEdgeY>
   <ColorDepth>32</ColorDepth>
-  <Description xml:space="preserve">run test stage 1</Description>
+  <Description xml:space="preserve">run test stage 2</Description>
   <FaceDirectionRatio>0</FaceDirectionRatio>
   <GameID>397687</GameID>
   <Height>200</Height>
   <LeftEdgeX>0</LeftEdgeX>
   <MaskResolution>1</MaskResolution>
-  <Number>1</Number>
+  <Number>2</Number>
   <OnAfterFadeIn>room_AfterFadeIn</OnAfterFadeIn>
   <OnFirstTimeEnter />
   <OnLeave />
@@ -20,7 +20,7 @@
   <OnLeaveRight />
   <OnLeaveTop />
   <OnLoad />
-  <OnRepExec>room_RepExec</OnRepExec>
+  <OnRepExec />
   <OnUnload />
   <PlayerCharacterView>0</PlayerCharacterView>
   <Properties />
@@ -28,158 +28,11 @@
   <ShowPlayerCharacter>True</ShowPlayerCharacter>
   <TopEdgeY>0</TopEdgeY>
   <Width>320</Width>
-  <Objects>
-    <RoomObject>
-      <Baseline>0</Baseline>
-      <BlendMode>Normal</BlendMode>
-      <BlockingRectangle>0,0,0,0</BlockingRectangle>
-      <Clickable>True</Clickable>
-      <Description />
-      <Enabled>True</Enabled>
-      <GraphicAnchor>0, 1</GraphicAnchor>
-      <GraphicOffset>0,0</GraphicOffset>
-      <Image>0</Image>
-      <Name>oObjectZero</Name>
-      <OnAnyClick />
-      <OnFrameEvent>oObjectZero_OnFrameEvent</OnFrameEvent>
-      <Properties />
-      <Solid>False</Solid>
-      <StartX>296</StartX>
-      <StartY>21</StartY>
-      <Transparency>0</Transparency>
-      <UseRoomAreaLighting>False</UseRoomAreaLighting>
-      <UseRoomAreaScaling>False</UseRoomAreaScaling>
-      <Visible>True</Visible>
-      <Interactions Version="4.0.0.24" />
-    </RoomObject>
-    <RoomObject>
-      <Baseline>0</Baseline>
-      <BlendMode>Normal</BlendMode>
-      <BlockingRectangle>0,0,0,0</BlockingRectangle>
-      <Clickable>True</Clickable>
-      <Description />
-      <Enabled>True</Enabled>
-      <GraphicAnchor>0, 1</GraphicAnchor>
-      <GraphicOffset>0,0</GraphicOffset>
-      <Image>0</Image>
-      <Name>oObjectOne</Name>
-      <OnAnyClick />
-      <OnFrameEvent />
-      <Properties />
-      <Solid>False</Solid>
-      <StartX>306</StartX>
-      <StartY>21</StartY>
-      <Transparency>0</Transparency>
-      <UseRoomAreaLighting>False</UseRoomAreaLighting>
-      <UseRoomAreaScaling>False</UseRoomAreaScaling>
-      <Visible>True</Visible>
-      <Interactions Version="4.0.0.24" />
-    </RoomObject>
-    <RoomObject>
-      <Baseline>0</Baseline>
-      <BlendMode>Normal</BlendMode>
-      <BlockingRectangle>0,0,0,0</BlockingRectangle>
-      <Clickable>True</Clickable>
-      <Description />
-      <Enabled>True</Enabled>
-      <GraphicAnchor>0, 1</GraphicAnchor>
-      <GraphicOffset>0,0</GraphicOffset>
-      <Image>0</Image>
-      <Name>oObjectTwo</Name>
-      <OnAnyClick />
-      <OnFrameEvent />
-      <Properties />
-      <Solid>False</Solid>
-      <StartX>316</StartX>
-      <StartY>21</StartY>
-      <Transparency>0</Transparency>
-      <UseRoomAreaLighting>False</UseRoomAreaLighting>
-      <UseRoomAreaScaling>False</UseRoomAreaScaling>
-      <Visible>True</Visible>
-      <Interactions Version="4.0.0.24" />
-    </RoomObject>
-    <RoomObject>
-      <Baseline>0</Baseline>
-      <BlendMode>Normal</BlendMode>
-      <BlockingRectangle>0,0,0,0</BlockingRectangle>
-      <Clickable>True</Clickable>
-      <Description />
-      <Enabled>True</Enabled>
-      <GraphicAnchor>0, 1</GraphicAnchor>
-      <GraphicOffset>0,0</GraphicOffset>
-      <Image>0</Image>
-      <Name>oInteractive</Name>
-      <OnAnyClick>oInteractive_AnyClick</OnAnyClick>
-      <OnFrameEvent />
-      <Properties />
-      <Solid>False</Solid>
-      <StartX>28</StartX>
-      <StartY>129</StartY>
-      <Transparency>0</Transparency>
-      <UseRoomAreaLighting>False</UseRoomAreaLighting>
-      <UseRoomAreaScaling>False</UseRoomAreaScaling>
-      <Visible>True</Visible>
-      <Interactions Version="4.0.0.24">
-        <Event Index="1" Name="Look_at" UID="Curs0002">oInteractive_Look</Event>
-        <Event Index="2" Name="Interact" UID="Curs0003">oInteractive_Interact</Event>
-        <Event Index="3" Name="Talk_to" UID="Curs0004">oInteractive_Talk</Event>
-        <Event Index="4" Name="Use_inv" UID="Curs0005">oInteractive_UseInv</Event>
-        <Event Index="5" Name="Pick_up" UID="Curs0006">oInteractive_PickUp</Event>
-        <Event Index="8" Name="Usermode1" UID="Curs0009">oInteractive_Mode8</Event>
-        <Event Index="9" Name="Usermode2" UID="Curs0010">oInteractive_Mode9</Event>
-      </Interactions>
-    </RoomObject>
-    <RoomObject>
-      <Baseline>0</Baseline>
-      <BlendMode>Normal</BlendMode>
-      <BlockingRectangle>0,0,0,0</BlockingRectangle>
-      <Clickable>True</Clickable>
-      <Description />
-      <Enabled>True</Enabled>
-      <GraphicAnchor>0, 1</GraphicAnchor>
-      <GraphicOffset>0,0</GraphicOffset>
-      <Image>0</Image>
-      <Name>oAnyClicker</Name>
-      <OnAnyClick>oAnyClicker_AnyClick</OnAnyClick>
-      <OnFrameEvent />
-      <Properties />
-      <Solid>False</Solid>
-      <StartX>31</StartX>
-      <StartY>140</StartY>
-      <Transparency>0</Transparency>
-      <UseRoomAreaLighting>False</UseRoomAreaLighting>
-      <UseRoomAreaScaling>False</UseRoomAreaScaling>
-      <Visible>True</Visible>
-      <Interactions Version="4.0.0.24" />
-    </RoomObject>
-    <RoomObject>
-      <Baseline>0</Baseline>
-      <BlendMode>Normal</BlendMode>
-      <BlockingRectangle>0,0,0,0</BlockingRectangle>
-      <Clickable>True</Clickable>
-      <Description />
-      <Enabled>True</Enabled>
-      <GraphicAnchor>0, 1</GraphicAnchor>
-      <GraphicOffset>0,0</GraphicOffset>
-      <Image>0</Image>
-      <Name>oNoHandlers</Name>
-      <OnAnyClick />
-      <OnFrameEvent />
-      <Properties />
-      <Solid>False</Solid>
-      <StartX>38</StartX>
-      <StartY>147</StartY>
-      <Transparency>0</Transparency>
-      <UseRoomAreaLighting>False</UseRoomAreaLighting>
-      <UseRoomAreaScaling>False</UseRoomAreaScaling>
-      <Visible>True</Visible>
-      <Interactions Version="4.0.0.24" />
-    </RoomObject>
-  </Objects>
+  <Objects />
   <Hotspots>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot0</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -189,7 +42,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspotOne</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -199,7 +52,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspotTwo</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -209,7 +62,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspotThree</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -219,35 +72,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hInteractive</Name>
-      <OnAnyClick>hInteractive_AnyClick</OnAnyClick>
-      <OnMouseMove>hInteractive_MouseMove</OnMouseMove>
-      <OnWalkOn>hInteractive_WalkOn</OnWalkOn>
-      <Properties />
-      <WalkToPoint>0,0</WalkToPoint>
-      <Interactions Version="4.0.0.24">
-        <Event Index="1" Name="Look_at" UID="Curs0002">hInteractive_Look</Event>
-        <Event Index="2" Name="Interact" UID="Curs0003">hInteractive_Interact</Event>
-        <Event Index="3" Name="Talk_to" UID="Curs0004">hInteractive_Talk</Event>
-        <Event Index="4" Name="Use_inv" UID="Curs0005">hInteractive_UseInv</Event>
-        <Event Index="5" Name="Pick_up" UID="Curs0006">hInteractive_PickUp</Event>
-        <Event Index="8" Name="Usermode1" UID="Curs0009">hInteractive_Mode8</Event>
-        <Event Index="9" Name="Usermode2" UID="Curs0010">hInteractive_Mode9</Event>
-      </Interactions>
-    </RoomHotspot>
-    <RoomHotspot>
-      <Description />
-      <Name>hAnyClicker</Name>
-      <OnAnyClick>hAnyClicker_AnyClick</OnAnyClick>
-      <OnMouseMove />
-      <OnWalkOn />
-      <Properties />
-      <WalkToPoint>0,0</WalkToPoint>
-      <Interactions Version="4.0.0.24" />
-    </RoomHotspot>
-    <RoomHotspot>
-      <Description />
-      <Name>hNoHandlers</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -257,7 +82,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot7</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -267,7 +92,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot8</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -277,7 +102,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot9</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -287,7 +112,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot10</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -297,7 +122,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot11</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -307,7 +132,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot12</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -317,7 +142,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot13</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -327,7 +152,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot14</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -337,7 +162,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot15</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -347,7 +172,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot16</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -357,7 +182,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot17</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -367,7 +192,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot18</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -377,7 +202,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot19</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -387,7 +212,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot20</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -397,7 +222,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot21</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -407,7 +232,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot22</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -417,7 +242,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot23</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -427,7 +252,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot24</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -437,7 +262,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot25</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -447,7 +272,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot26</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -457,7 +282,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot27</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -467,7 +292,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot28</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -477,7 +302,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot29</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -487,7 +312,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot30</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -497,7 +322,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot31</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -507,7 +332,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot32</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -517,7 +342,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot33</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -527,7 +352,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot34</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -537,7 +362,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot35</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -547,7 +372,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot36</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -557,7 +382,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot37</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -567,7 +392,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot38</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -577,7 +402,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot39</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -587,7 +412,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot40</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -597,7 +422,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot41</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -607,7 +432,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot42</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -617,7 +442,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot43</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -627,7 +452,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot44</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -637,7 +462,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot45</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -647,7 +472,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot46</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -657,7 +482,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot47</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -667,7 +492,7 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot48</Name>
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -677,7 +502,27 @@
     </RoomHotspot>
     <RoomHotspot>
       <Description />
-      <Name>hHotspot49</Name>
+      <Name />
+      <OnAnyClick />
+      <OnMouseMove />
+      <OnWalkOn />
+      <Properties />
+      <WalkToPoint>0,0</WalkToPoint>
+      <Interactions Version="4.0.0.24" />
+    </RoomHotspot>
+    <RoomHotspot>
+      <Description />
+      <Name />
+      <OnAnyClick />
+      <OnMouseMove />
+      <OnWalkOn />
+      <Properties />
+      <WalkToPoint>0,0</WalkToPoint>
+      <Interactions Version="4.0.0.24" />
+    </RoomHotspot>
+    <RoomHotspot>
+      <Description />
+      <Name />
       <OnAnyClick />
       <OnMouseMove />
       <OnWalkOn />
@@ -900,9 +745,9 @@
       <BlueTint>0</BlueTint>
       <GreenTint>0</GreenTint>
       <LightLevel>100</LightLevel>
-      <OnStanding>region1_Standing</OnStanding>
-      <OnWalksOff>region1_WalksOff</OnWalksOff>
-      <OnWalksOnto>region1_WalksOnto</OnWalksOnto>
+      <OnStanding />
+      <OnWalksOff />
+      <OnWalksOnto />
       <Properties />
       <RedTint>0</RedTint>
       <TintLuminance>100</TintLuminance>
