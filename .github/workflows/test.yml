@@ -6,7 +6,7 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  build-ags3:
     runs-on: windows-2022
     timeout-minutes: 10
     permissions:
@@ -44,11 +44,6 @@ jobs:
         run: |
           atbx install editor -q ags3/auto-test/
 
-      # Install the latest found 4.0.*
-      - name: Install AGS 4
-        run: |
-          atbx install editor -q ags4/auto-test/
-
       - name: Build AGS 3.6.1 game
         run: |
           atbx build --timeout=300 ags3/auto-test-3.6.1/
@@ -71,6 +66,43 @@ jobs:
           name: ags3-binaries
           path: ags3/auto-test/Compiled/*/*
 
+      - name: Zip each auto-test
+        run: |
+          powershell Compress-Archive -Path ags3/auto-test/Compiled/Data/* -DestinationPath ags3-auto-test.zip
+          powershell Compress-Archive -Path ags3/auto-test-3.6.1/Compiled/Data/* -DestinationPath ags3-auto-test-3.6.1.zip
+          powershell Compress-Archive -Path ags3/auto-test-3.6.2/Compiled/Data/* -DestinationPath ags3-auto-test-3.6.2.zip
+
+      - name: Upload release artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: auto-test-release-ags3-zips
+          path: |
+            ags3-auto-test.zip
+            ags3-auto-test-3.6.1.zip
+            ags3-auto-test-3.6.2.zip
+
+
+  build-ags4:
+    runs-on: windows-2022
+    timeout-minutes: 10
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: gets ags-toolbox
+        run: |
+          curl -Lo atbx.exe https://github.com/ericoporto/agstoolbox/releases/download/0.6.1/atbx.exe
+          echo "${{github.workspace}}" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+
+      # Install the latest found 4.0.*
+      - name: Install AGS 4
+        run: |
+          atbx install editor -q ags4/auto-test/
+
       - name: Build AGS 4 game
         run: |
           atbx build --timeout=300 ags4/auto-test/
@@ -83,23 +115,18 @@ jobs:
 
       - name: Zip each auto-test
         run: |
-          powershell Compress-Archive -Path ags3/auto-test/Compiled/Data/* -DestinationPath ags3-auto-test.zip
-          powershell Compress-Archive -Path ags3/auto-test-3.6.1/Compiled/Data/* -DestinationPath ags3-auto-test-3.6.1.zip
-          powershell Compress-Archive -Path ags3/auto-test-3.6.2/Compiled/Data/* -DestinationPath ags3-auto-test-3.6.2.zip
           powershell Compress-Archive -Path ags4/auto-test/Compiled/Data/* -DestinationPath ags4-auto-test.zip
 
       - name: Upload release artifacts
         uses: actions/upload-artifact@v7
         with:
-          name: auto-test-release-zips
+          name: auto-test-release-ags4-zips
           path: |
-            ags3-auto-test.zip
-            ags3-auto-test-3.6.1.zip
-            ags3-auto-test-3.6.2.zip
             ags4-auto-test.zip
 
-  test-windows:
-    needs: build
+
+  test-windows-ags3:
+    needs: build-ags3
     runs-on: windows-2022
     permissions:
       contents: read
@@ -109,12 +136,6 @@ jobs:
         with:
           name: ags3-binaries
           path: ags3/auto-test/Compiled
-
-      - name: Download AGS 4 artifacts
-        uses: actions/download-artifact@v8
-        with:
-          name: ags4-binaries
-          path: ags4/auto-test/Compiled
 
       - name: Run AGS 3 game (Software)
         shell: cmd
@@ -129,30 +150,11 @@ jobs:
           cd ags3\\auto-test\\Compiled\\Windows
           .\\ags3-auto-test --no-message-box --gfxdriver d3d9 --log-stdout=script:info,main:info --user-data-dir .
 
-      - name: Run AGS 4 game (Software)
-        shell: cmd
-        run: |
-          cd ags4\\auto-test\\Compiled\\Windows
-          .\\ags4-auto-test --no-message-box --gfxdriver software --log-stdout=script:info,main:info --user-data-dir .
-          if exist agstest.tap mv agstest.tap agstest-software.tap
-
-      - name: Run AGS 4 game (Direct3D)
-        shell: cmd
-        run: |
-          cd ags4\\auto-test\\Compiled\\Windows
-          .\\ags4-auto-test --no-message-box --gfxdriver d3d9 --log-stdout=script:info,main:info --user-data-dir .
-
       - name: Upload AGS 3 test log
         uses: actions/upload-artifact@v7
         with:
           name: ags3-test-log-windows
           path: ags3/auto-test/Compiled/Windows/agstest*.tap
-
-      - name: Upload AGS 4 test log
-        uses: actions/upload-artifact@v7
-        with:
-          name: ags4-test-log-windows
-          path: ags4/auto-test/Compiled/Windows/agstest*.tap
 
       - name: Summary write
         shell: sh
@@ -174,6 +176,38 @@ jobs:
           path: "ags3/auto-test/Compiled/Windows/agstest-software.tap"
         if: always()
 
+
+  test-windows-ags4:
+    needs: build-ags4
+    runs-on: windows-2022
+    permissions:
+      contents: read
+    steps:
+      - name: Download AGS 4 artifacts
+        uses: actions/download-artifact@v8
+        with:
+          name: ags4-binaries
+          path: ags4/auto-test/Compiled
+
+      - name: Run AGS 4 game (Software)
+        shell: cmd
+        run: |
+          cd ags4\\auto-test\\Compiled\\Windows
+          .\\ags4-auto-test --no-message-box --gfxdriver software --log-stdout=script:info,main:info --user-data-dir .
+          if exist agstest.tap mv agstest.tap agstest-software.tap
+
+      - name: Run AGS 4 game (Direct3D)
+        shell: cmd
+        run: |
+          cd ags4\\auto-test\\Compiled\\Windows
+          .\\ags4-auto-test --no-message-box --gfxdriver d3d9 --log-stdout=script:info,main:info --user-data-dir .
+
+      - name: Upload AGS 4 test log
+        uses: actions/upload-artifact@v7
+        with:
+          name: ags4-test-log-windows
+          path: ags4/auto-test/Compiled/Windows/agstest*.tap
+
       - name: Summary write
         shell: sh
         run: echo '### Test Summary AGS 4 (Direct3D)' >> $GITHUB_STEP_SUMMARY
@@ -194,8 +228,9 @@ jobs:
           path: "ags4/auto-test/Compiled/Windows/agstest-software.tap"
         if: always()
 
-  test-linux:
-    needs: build
+
+  test-linux-ags3:
+    needs: build-ags3
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -205,12 +240,6 @@ jobs:
         with:
           name: ags3-binaries
           path: ags3-binaries
-
-      - name: Download AGS 4 artifacts
-        uses: actions/download-artifact@v8
-        with:
-          name: ags4-binaries
-          path: ags4-binaries
 
       - name: Run AGS 3 Linux Game (Software)
         run: |
@@ -234,6 +263,19 @@ jobs:
           path: "ags3-binaries/Linux/agstest-software.tap"
         if: always()
 
+
+  test-linux-ags4:
+    needs: build-ags4
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Download AGS 4 artifacts
+        uses: actions/download-artifact@v8
+        with:
+          name: ags4-binaries
+          path: ags4-binaries
+
       - name: Run AGS 4 Linux Game (Software)
         run: |
           cd ags4-binaries/Linux
@@ -256,17 +298,25 @@ jobs:
           path: "ags4-binaries/Linux/agstest-software.tap"
         if: always()
 
+
   release:
-    needs: build
+    needs:
+      - build-ags3
+      - build-ags4
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
     permissions:
       contents: write
     steps:
-      - name: Download built test games
+      - name: Download built AGS3 test games
         uses: actions/download-artifact@v8
         with:
-          name: auto-test-release-zips
+          name: auto-test-release-ags3-zips
+
+      - name: Download built AGS4 test games
+        uses: actions/download-artifact@v8
+        with:
+          name: auto-test-release-ags4-zips
 
       - name: Create release and upload assets
         env:
