@@ -65,9 +65,21 @@ jobs:
         run: |
           atbx build --timeout=300 ags3/auto-test/
 
+      - name: Upload runnable binaries AGS 3
+        uses: actions/upload-artifact@v7
+        with:
+          name: ags3-binaries
+          path: ags3/auto-test/Compiled/*/*
+
       - name: Build AGS 4 game
         run: |
           atbx build --timeout=300 ags4/auto-test/
+
+      - name: Upload runnable binaries AGS 4
+        uses: actions/upload-artifact@v7
+        with:
+          name: ags4-binaries
+          path: ags4/auto-test/Compiled/*/*
 
       - name: Zip each auto-test
         run: |
@@ -85,18 +97,6 @@ jobs:
             ags3-auto-test-3.6.1.zip
             ags3-auto-test-3.6.2.zip
             ags4-auto-test.zip
-
-      - name: Upload runnable binaries AGS 3
-        uses: actions/upload-artifact@v7
-        with:
-          name: ags3-binaries
-          path: ags3/auto-test/Compiled/*/*
-
-      - name: Upload runnable binaries AGS 4
-        uses: actions/upload-artifact@v7
-        with:
-          name: ags4-binaries
-          path: ags4/auto-test/Compiled/*/*
 
   test-windows:
     needs: build
